@@ -5,13 +5,13 @@ import classes.garminProcess as gp #THIS HANDLES CONVERTING .FIT FILES AND MERGI
 #FILES AND LOCATIONS
 #DEFINES START/END OF E/ BOUT BASED ON STOPWATCH OR VISUAL INSPECTION OF ECG
 list_comparison = pd.read_excel("limits.xlsx")
-data_dir = "/volumes/Drive2/Garmin PPG/garminProcess/input_data/*" #WHERE ARE .FIT FILES STORED?
+data_dir = "/YOUR DIRECTORY/Data/*" #WHERE ARE .FIT FILES STORED?
 garmin_location = "FitSDKRelease_21.60.00/java/FitCSVTool.jar" #LOCATION OF THE GARMIN FIT SDK
 output_dir = "Output/" #WHERE WILL OUTPUT FILES BE SAVED?
-longform_name = "longform_6.5.24.xlsx" #NAME OF THE LONGFORM EXCEL FILE TO BE SAVED
-wideform_name = "wideform_6.5.24.xlsx" #NAME OF THE WIDEFORM EXCEL FILE TO BE SAVED
-ids=[1,2,3,4,5,6,7,8,9,10,104,107,110,112,113,114,117,118,119,120,121] #PARTICIPANT IDS TO BE INCLUDED
+longform_name = "longform_DATE.xlsx" #NAME OF THE LONGFORM EXCEL FILE TO BE SAVED
+wideform_name = "wideform_DATE.xlsx" #NAME OF THE WIDEFORM EXCEL FILE TO BE SAVED
 summary = pd.DataFrame() #THIS WILL COMBINE DATA FROM EACH PARTICIPANT
+ids=[1,2] #PARTICIPANT IDS TO BE INCLUDED
 
 #PROCESS DATA
 # UNCOMMENT IF .FIT FILES NEED TO BE CONVERTED
@@ -44,10 +44,7 @@ combined_conditions = pd.merge_asof(chest, watch, on="datetime", by="id", tolera
 #LOOP THROUGH IDS TO BE INCLUDED
 for id in ids:
     #CREATE A DATAFRAME WITH JUST THIS PID TO EXTRACT OUT DATA BY PHASE AND PROCESS
-    print(id)
     one_id = combined_conditions.loc[combined_conditions['id'] == id]
-    print(combined_conditions)
-    print(one_id)
     #add a row-number column for easy referencing on the plot
     one_id['row_num'] = np.arange(len(one_id))
 
