@@ -4,7 +4,7 @@ import classes.garminProcess as gp #THIS HANDLES CONVERTING .FIT FILES AND MERGI
 
 #FILES AND LOCATIONS
 #DEFINES START/END OF E/ BOUT BASED ON STOPWATCH OR VISUAL INSPECTION OF ECG
-list_comparison = pd.read_excel("limits.xlsx")
+list_comparison = pd.read_excel("input/limits.xlsx")
 data_dir = "/YOUR DIRECTORY/Data/*" #WHERE ARE .FIT FILES STORED?
 garmin_location = "FitSDKRelease_21.60.00/java/FitCSVTool.jar" #LOCATION OF THE GARMIN FIT SDK
 output_dir = "Output/" #WHERE WILL OUTPUT FILES BE SAVED?
