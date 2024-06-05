@@ -14,13 +14,13 @@ Install the following python packages before running
 - pandas
 
 ### OTHER REQUIREMENTS
-Reading/writing excel with Pandas requires openpyxl. Head to your console and install
+This also requires openpyxl to read/write to Excel.
 ```
 pip install openpyxl
 ```
 ### FOLDER STRUCTURE
 Use the project file structure. Regarding input .fit files, the code must be pointed to a data directory somewhere with the following structure
-- Data (of whatever you want to call it)
+- Data (or whatever you want to call it)
   - Identifier 1_Condition
     - Identifier 1_Condition.fit
   - Identifier 2_Condition
@@ -37,8 +37,8 @@ The code is set up to handle condition 'C' for chest (ECG) and 'W' for wrist (PP
     -  2_W.fit
 
 ### OTHER REQUIRED FILES
-Within "inputs" there is a limits Excel file. This will hold the <b>row number</b> within the dataframe corresponding to the _end_ of a given phase. For instance, the 'start' phase will begin at row 0 and finish at the number given in the 'ramp' column for a given ID. 
-These can be observed by either printing each one_id dataframe to match timestamps or by visual inspection of the plotted data. The phases are defined based on ECG data as the reference as follows:
+Within "inputs" there is a "limits.xlsx" Excel file. This will hold the <b>row number</b> within the dataframe corresponding to the _end_ of a given phase. For instance, the 'start' phase will begin at row 0 and finish at the number given in the 'ramp' column for a given ID. 
+These can be observed by either printing each one_id dataframe to match timestamps and/or by visual inspection of the plotted data. The phases are defined based on ECG data as the reference as follows:
 - Start: The period from when testing starts until when heart rate begins to climb due to the start of exercise.
 - Ramp 1: The period in which heart rate values climb to steady-state during the first exercise bout.
 - Exercise 1: Steady-state heart rate during the first exercise bout.
@@ -67,7 +67,8 @@ wideform_name = "wideform_DATE.xlsx" #NAME OF THE WIDEFORM EXCEL FILE TO BE SAVE
 summary = pd.DataFrame() #THIS WILL COMBINE DATA FROM EACH PARTICIPANT
 ```
 
-Create a list of participant ID numbers that will correspond to the integer IDs in your folder structure.  
+Create a list of participant ID numbers that will correspond to the integer IDs in your folder structure; 
+include only those you want to include in your analyses.  
 ```
 ids=[INSERT THE ID NUMBERS AS A LIST] #PARTICIPANT IDS TO BE INCLUDED
 ```
