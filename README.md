@@ -37,7 +37,7 @@ The code is set up to handle condition 'C' for chest (ECG) and 'W' for wrist (PP
     -  2_W.fit
 
 ### OTHER REQUIRED FILES
-Within "inputs" there is a "limits.xlsx" Excel file. This will hold the <b>row number</b> within the dataframe corresponding to the _end_ of a given phase. For instance, the 'start' phase will likelybegin at row 0 and finish at the number given in the 'ramp' column for a given ID. 
+Within "inputs" there is a "limits.xlsx" Excel file. This will hold the <b>row number</b> within the dataframe corresponding to the _end_ of a given phase.  
 These are the row number in the one_id dataframe corresponding to the start or end of a given bout as described below:
 - Start: The period from when testing starts until when heart rate begins to climb due to the start of exercise.
 - Ramp 1: The period in which heart rate values climb to steady-state during the first exercise bout.
